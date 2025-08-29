@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: B-order-service
+
+message: "Hello from Order Service Config"

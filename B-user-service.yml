@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: B-user-service
+
+message: "Hello from User Service Config"
