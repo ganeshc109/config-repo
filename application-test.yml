@@ -1,5 +1,8 @@
 spring:
-  profiles: test
+  config:
+    activate:
+      on-profile: test
+spring:
   application:
     name: global-config
 
