@@ -1,0 +1,6 @@
+spring:
+  profiles: prod
+  application:
+    name: global-config
+
+message: "Hello from Config Server - Prod Profile"
