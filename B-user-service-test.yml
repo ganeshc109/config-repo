@@ -21,3 +21,7 @@ server:
   port: 8089
 
 message: "Hello from User Service Config - Test Profile"
+
+management.endpoints.web.exposure.include: health
+
+management.endpoint.health.show-details: always
