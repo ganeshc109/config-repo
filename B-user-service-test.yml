@@ -28,3 +28,11 @@ management.endpoint.health.show-details: always
 # Add fixed Basic credentials for testing
 spring.security.user.name: test
 spring.security.user.password: test123
+
+server.error.include-message: always
+
+server.error.include-binding-errors: always
+
+logging.level.org.springframework.web: DEBUG
+
+logging.level.com.example.demo: DEBUG
