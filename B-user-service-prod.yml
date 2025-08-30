@@ -3,7 +3,7 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:postgresql://localhost:5432/usersdb
+    url: jdbc:postgresql://localhost:5432/usersdb_prod
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
