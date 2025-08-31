@@ -20,6 +20,12 @@ spring:
 server:
   port: 8043
 
+eureka:
+  instance:
+    metadata-map:
+      profile: prod
+
+
 message: "Hello from User Service - Prod Profile"
 
 management.endpoints.web.exposure.include: health

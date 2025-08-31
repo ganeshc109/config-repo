@@ -16,11 +16,17 @@ spring:
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
 
 server:
-  port: 8043
+  port: 8053
   error:
     include-message: always
     include-binding-errors: always
   message: "Hello from User Service Config - Prod Profile (MySQL)"
+
+eureka:
+  instance:
+    metadata-map:
+      profile: prod
+
 
 management:
   endpoints:

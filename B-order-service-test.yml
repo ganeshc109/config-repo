@@ -22,6 +22,12 @@ server:
     include-binding-errors: always
   message: "Hello from Order Service Config - Test Profile (MySQL)"
 
+eureka:
+  instance:
+    metadata-map:
+      profile: test
+
+
 management:
   endpoints:
     web:
