@@ -6,7 +6,7 @@ spring:
       on-profile: test
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/users_Authdb
+    url: jdbc:postgresql://localhost:5432/usersdb_authdb
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
