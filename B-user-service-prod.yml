@@ -33,11 +33,14 @@ message: "Hello from User Service - Prod Profile"
 management.endpoints.web.exposure.include: health
 management.endpoint.health.show-details: always
 
-spring.security.user.name: test
-spring.security.user.password: test123
-
 server.error.include-message: always
 server.error.include-binding-errors: always
 
-logging.level.org.springframework.web: DEBUG
-logging.level.com.example.demo: DEBUG
+logging:
+  level:
+    root: INFO
+    com.example.demo: DEBUG   # enable detailed logs for your app
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG             # show SQL queries
+    org.hibernate.type.descriptor.sql: TRACE  # show SQL parameters
