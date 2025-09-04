@@ -15,3 +15,13 @@ jwt:
     1gjGKvQ5ZApD+rXKHliAZZ43/NGGXdMaEYPzzoxtF2xF9FS9LJJLwmOhqpIJeTHZ
     cQIDAQAB
     -----END PUBLIC KEY-----
+
+logging:
+  level:
+    root: INFO  # Default for app
+    org.springframework.cloud.netflix.eureka: DEBUG  # Eureka registration/discovery
+    com.netflix.discovery: DEBUG  # Eureka client details (registry fetches)
+    org.springframework.cloud.openfeign: DEBUG  # Feign requests/responses
+    org.springframework.cloud.loadbalancer: TRACE  # Cache keys and instance selection
+    org.springframework.cloud.client.discovery: TRACE  # DiscoveryClient operations
+    org.springframework.web: INFO  # Web requests
