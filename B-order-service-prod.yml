@@ -16,6 +16,11 @@ spring:
     properties:
       hibernate.jdbc.time_zone: Asia/Kolkata
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 server:
   port: 8053
@@ -29,7 +34,6 @@ eureka:
     metadata-map:
       profile: prod
 
-
 management:
   endpoints:
     web:
@@ -38,6 +42,23 @@ management:
   endpoint:
     health:
       show-details: always
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userService:
+        register-health-indicator: true
+        sliding-window-size: 10          # Number of calls to evaluate
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50       # % of failed calls before CB opens
+        wait-duration-in-open-state: 10s # How long CB stays open before retrying
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+  retry:
+    instances:
+      userService:
+        max-attempts: 3
+        wait-duration: 500ms
 
 logging:
   level:
