@@ -4,11 +4,13 @@ spring:
   config:
     activate:
       on-profile: test
+
   datasource:
     url: jdbc:mysql://localhost:3306/ordersdb_test
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,17 +18,22 @@ spring:
     properties:
       hibernate.jdbc.time_zone: Asia/Kolkata
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+
   kafka:
     bootstrap-servers: localhost:29092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
   cache:
     type: redis
+
   redis:
-    host: localhost    # docker-compose service name
+    host: localhost         # Redis host (docker-compose service name if using docker)
     port: 6379
-    timeout: 60000
+    lettuce:
+      shutdown-timeout: 100ms
+    timeout: 60000ms
 
 server:
   port: 8090
@@ -54,10 +61,10 @@ resilience4j:
     instances:
       userService:
         register-health-indicator: true
-        sliding-window-size: 10          # Number of calls to evaluate
+        sliding-window-size: 10
         minimum-number-of-calls: 5
-        failure-rate-threshold: 50       # % of failed calls before CB opens
-        wait-duration-in-open-state: 10s # How long CB stays open before retrying
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 3
         automatic-transition-from-open-to-half-open-enabled: true
   retry:
@@ -69,8 +76,8 @@ resilience4j:
 logging:
   level:
     root: INFO
-    com.example.demo: DEBUG   # enable detailed logs for your app
+    com.example.demo: DEBUG
     org.springframework.web: DEBUG
     org.springframework.security: DEBUG
-    org.hibernate.SQL: DEBUG             # show SQL queries
-    org.hibernate.type.descriptor.sql: TRACE  # show SQL parameters
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE

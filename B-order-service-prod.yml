@@ -24,9 +24,11 @@ spring:
   cache:
     type: redis
   redis:
-    host: localhost    # docker-compose service name
+    host: localhost         # Redis host (docker-compose service name if using docker)
     port: 6379
-    timeout: 60000
+    lettuce:
+      shutdown-timeout: 100ms
+    timeout: 60000ms
 
 server:
   port: 8053
