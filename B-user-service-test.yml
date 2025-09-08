@@ -29,7 +29,7 @@ spring:
   cache:
     type: redis
   redis:
-    host: redis    # docker-compose service name
+    host: localhost    # docker-compose service name
     port: 6379
     timeout: 60000
 
