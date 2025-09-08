@@ -21,6 +21,12 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  cache:
+    type: redis
+  redis:
+    host: redis    # docker-compose service name
+    port: 6379
+    timeout: 60000
 
 server:
   port: 8053

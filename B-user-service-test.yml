@@ -26,6 +26,12 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
+  cache:
+    type: redis
+  redis:
+    host: redis    # docker-compose service name
+    port: 6379
+    timeout: 60000
 
 server:
   port: 8089
