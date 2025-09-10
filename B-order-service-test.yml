@@ -51,7 +51,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health
+        include: health,info,circuitbreakerevents,loggers,metrics
   endpoint:
     health:
       show-details: always
